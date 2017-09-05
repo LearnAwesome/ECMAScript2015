@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+		//Object.getOwnPropertyDescriptor()
+			//对象下的每个属性都会有一个描述器
+//			let obj = { a: 1, f() {} };
+//			console.log( Object.getOwnPropertyDescriptor( obj, 'a' ) ); //{value: 1, writable: true, enumerable: true 是否可被枚举, configurable: true}
+			
+			//涉及枚举对象的方法，前提是该属性的enumerable = true
+			//ES5三种
+				//for in 遍历对象所有可枚举属性的key，包括继承来的属性
+				//Object.keys() 返回自身所有可枚举属性的键名
+				//JSON.stringify() 串行化自身可枚举的属性
+			
+			//ES6两种
+				//Object.assign() 只合并对象中可枚举的属性
+				//Reflect.enumerate() 同for in(浏览器不支持)
+			
+			let obj = {};
+			Object.defineProperty(obj, 'a', {
+				value: 1,
+				writable: true,
+				enumerable: false,
+				configurable: false
+			});
+			obj.a.enumerable = true
+			console.log(obj.a.enumerable);
+		</script>
+	</body>
+</html>

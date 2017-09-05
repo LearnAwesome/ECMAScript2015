@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+		//1.基本用法
+			//声明有效范围为其所在的块级作用域
+			{				
+				let a = 123;
+//				console.log(a); //123
+			}
+//			console.log(a); //a is not defined
+			
+			for (let i=0; i<2; i++) { //for循环中的条件的作用域为其后方的代码块
+//				console.log(i);
+			}
+//			console.log(i); //i is not defined
+
+			
+		//2.不存在变量提升
+			{
+//				console.log(a); //a is not defined
+//				console.log(b); //undefined 变量提升
+//				if (true) {					
+//					let a = 123;
+//					var b = 321;
+//				}
+			}
+			
+		//3.暂时性死区temporal dead zone
+			var t = 1;
+			if (true) {
+//				console.log(t); //t is not defined
+				let t = 2; //一旦该作用域中存在let声明，则该作用域中的相关变量已经绑定在其中，不受外界影响，所以从作用域起始位置到声明之前的区域就是TDZ
+			}
+			
+			function bar(x = y, y = 2) { //不明显的TDZ
+				//相当于let x = y; let y = 2; 在声明y之前是y变量的TDZ，所以let x = y报错
+				return [x, y];
+			}
+//			bar(); //y is not defined
+		
+		//4.不允许重复声明
+			{
+				let a = 1;
+//				let a = 2;
+//				console.log(a); //Identifier 'a' has already been declared
+			}
+			
+			{
+				let b = 1;
+//				var b = 2;
+//				console.log(b); //Identifier 'b' has already been declared
+			}
+			
+			function func(c) {
+//				let c = 1;
+//				console.log(c); //Identifier 'c' has already been declared
+				{
+					let c = 2;
+					console.log(c); //2
+				}
+			}
+//			func(); 
+
+		//5.块级作用域
+//		function f() { console.log('outside!'); }
+//		(function() {
+//			if (false) {
+//				function f() { console.log('inside!'); }
+//			}
+//			f();
+//		})();
+
+		//6.全局对象属性
+		let a = 1;
+		console.log(window) //undifined
+
+		</script>
+	</body>
+</html>

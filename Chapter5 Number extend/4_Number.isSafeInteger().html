@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			console.log( Math.pow(2, 53) ); //9007199254740992
+			
+			//最大最小整数范围
+			console.log(Number.MAX_SAFE_INTEGER); //9007199254740991 2^{53}-1
+			console.log(Number.MIN_SAFE_INTEGER); //-9007199254740991 -2^{53}+1
+			
+			//验证是否为安全整数
+			console.log( Number.isSafeInteger( Math.pow( 2, 53 ) ) ); //false
+			console.log( Number.isSafeInteger( Math.pow( 2, 53 ) - 1 ) ); //true
+			
+			//严谨起见，验证运算结果是否落在安全整数区间时，每个参与运算的数字都需要验证
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		//Object.assign(target, ...otherObjects)
+			//将otherObjects中的可枚举属性合并到target中，如果存在同名属性，则会按先后顺序覆盖
+//			let target = { a: 1 };
+//			let other1 = { b: 2 };
+//			let other2 = { c: 3 };
+//			let other3 = { a: 4 };
+//			console.log( Object.assign( target, other1, other2 ) ); //返回合并之后的target
+//			console.log(target); //{ a: 1, b: 2, c: 3 }
+//			
+//			console.log( Object.assign( target, other3 ) ); //{ a: 4, b: 2, c: 3 }
+			
+			//克隆对象
+//			let obj1 = { a: 1, b: 2 };
+////			obj1.prototype = {
+////				constructor: this,
+////				f() {
+////					console.log(this)
+////				}
+////			};
+//			let proto = Object.setPrototypeOf( obj1, {
+//				f() {
+//					console.log(this.b);
+//				}
+//			} );
+//			let obj2 = Object.assign( Object.create( proto ), obj1 );
+//			console.log(obj2);
+//			obj2.f()
+			
+			//合并多个对象
+//			const merge = ( target, ...others ) => Object.assign( target, ...others );
+//			let obj1 = { a: 1 };
+//			merge( obj1, { b: 2 }, { c: 3 } );
+//			console.log( obj1 ); //{ a: 1, b: 2, c: 3 }
+//			const merge = ( ...sources ) => Object.assign( ...sources );
+//			let obj = merge( {a: 1}, {b: 2} );
+//			console.log( obj ); //{ a: 1, b: 2 }
+
+			//为对象指定默认值
+//			const DEFAULTS = {type: 'obj'};
+//			const processContent = ( target ) => Object.assign( target, DEFAULTS );
+//			let obj = { a: 1 };
+//			processContent( obj );
+//			console.log( obj );
+		
+		</script>
+	</body>
+</html>

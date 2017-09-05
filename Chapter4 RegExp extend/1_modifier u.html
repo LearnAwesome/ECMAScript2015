@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+		//u修饰符：可以正确解析大于\uFFFF的字符
+		
+			//注意
+			//1.正则中使用了Unicode字符表示法时，如果不加u，则会解析为量词
+			console.log( /\u{1}/.test('') ); //false
+			console.log( /\u{1}/u.test('') ); //true
+			
+			//2.最准确的判断字符串
+			function getLength(str) {
+				return str.match(/[\s\S]/gu).length;
+			}
+			var str = '1234 56一.-_\u{20bb7}';
+			console.log( getLength(str) );
+		</script>
+		
+	</body>
+</html>

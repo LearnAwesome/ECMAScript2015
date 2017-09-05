@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//ES6属性名表达式，用字符串写在[]里
+			//外部定义
+//			let obj = new Object();
+//			obj.name = 'Jon';
+//			obj[ `a` + `g` + `e` ] = 27;
+//			console.log(obj); //{ name: 'Jon', age: 27 }
+			
+			//内部定义
+//			let foo = 'name';
+//			let obj = {
+//				[foo]: 'Jon',
+//				[`a`+`ge`]: 27
+//			};
+//			console.log( obj ); //{ name: 'Jon', age: 27 }
+//			console.log( obj[foo] ); //'Jon'
+//			console.log( obj['name'] ); //'Jon'
+			
+			//内部方法
+//			let foo = `name`;
+//			let obj = {
+//				[`get` + foo]() {
+//					console.log('Jon');
+//				}
+//			};
+//			obj.getname();
+//			obj[`get`+foo]();
+
+			let f = (str) => str.repeat(2);
+			let obj = {
+				[ f('name') ]() {
+					console.log(this);
+				}
+			}
+		</script>
+	</body>
+</html>

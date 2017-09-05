@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+		//Number.isInteger()判断是否为整数
+		//注意：在js中，整数和浮点数是同样的储存方法，所以3和3.0全等
+		
+			console.log( Number.isInteger(3) );  //true
+			console.log( Number.isInteger(3.0) );  //true
+			console.log( Number.isInteger(3.1) );  //false
+			
+			//ES5中部署方法
+			(function(global) {
+				var math_floor = Math.floor;
+				var global_isFinite = global.isFinite;
+				Object.defineProperty(Number, 'isInteger', {
+					value: function isInteger(value) {
+						return typeof value === 'number' &&
+							global_isFinite(value) &&
+							value > -9007199254740992 &&
+							value < 9007199254740992 &&
+							math_floor(value) === value;
+					},
+					configurable: true,
+					writable: true,
+					enumerable: false
+				});
+			})(this);
+			
+		</script>
+	</body>
+</html>
