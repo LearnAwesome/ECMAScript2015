@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//handler中的set()方法拦截实例
+			//1.限定某个属性的设置
+//			const validator = {
+//				set( obj, prop, val ) {
+//					if ( prop === 'age' ) {
+//						if ( !Number.isInteger( val ) ) {
+//							throw new TypeError( 'The age is not an integer.' );
+//						}
+//						if ( val > 100 ) {
+//							throw new RangeError( 'Greater than the maximum age 100.' );
+//						}
+//					}
+//					Reflect.set( ...arguments );
+////					return obj[prop] = val;
+//				}
+//			}
+//			const person = new Proxy( {}, validator );
+//			person.age = '1'; //TypeError: The age is not an integer.
+//			person.age = 50;
+//			console.log( person.age = 50 );
+//			console.log( person.age ); //50
+//			person.age = 150; //RangeError: Greater than the maximum age 100
+
+			//2.限制某些私有属性不被修改与读取
+//			const handler = {
+//				get( obj, prop ) {
+//					invariant( prop, 'get' );
+//					return obj[prop];
+//				},
+//				set( obj, prop, val ) {
+//					invariant( prop, 'set' );
+//					return true;
+//				}
+//			};
+//			const invariant = ( prop, action ) => {
+//				if ( prop[0] === '_' ) {
+//					throw new Error( `Invalid attempt to ${prop} private "${action}" property` );
+//				}
+//			};
+//			
+//			const target = {
+//				name: 'abc',
+//				_id: '123456789'
+//			};
+//			const proxy = new Proxy( target, handler );
+//			console.log(proxy.name)
+//			console.log(proxy._id); //Error: Invalid attempt to _id private "get" property
+//			proxy._prop = 'cde'; //Error: Invalid attempt to _prop private "set" property
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Proxy.revocable( target, handler )
+			//返回一个对象，{ proxy, revoke }
+				//proxy属性是Proxy的实例对象
+				//revoke属性是函数，可以取消Proxy实例
+				
+			const target = {};
+			const handler = {};
+			const { proxy, revoke } = Proxy.revocable( target, handler );
+			proxy.abc = 123;
+			console.log( proxy.abc ); //123
+			revoke();
+			console.log( proxy.abc ); //TypeError: Cannot perform 'get' on a proxy that has been revoked
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//handler中的apply()方法拦截实例
+			//1.基本应用
+//			const handler = {
+//				apply() {
+//					return console.log( `I am the proxy.` )
+//				}
+//			};
+//			const foo = () => console.log( `I am the function.` );
+//			const proxy = new Proxy( foo, handler );
+//			foo(); //I am the function.
+//			proxy(); //I am the proxy.
+
+			//2.结果修改
+//			const handler = {
+//				apply() {
+//					return Reflect.apply( ...arguments ) * 2;
+//				}
+//			};
+//			const sum = ( ...rest ) => {
+//				let res = 0;
+//				[...rest].forEach( (n) => res += n );
+//				return res;
+//			}
+////			console.log( sum.call( null, 1, 2, 3 )); //6
+////			console.log( sum.apply( null, [1, 2, 3] )); //6
+//			const proxy = new Proxy( sum, handler );
+//			console.log( proxy( 2, 3 ) ); //10
+//			console.log( proxy.call( null, 2, 3 ) ); //10
+//			console.log( proxy.apply( null, [2, 3] ) ); //10
+//			console.log( Reflect.apply( proxy, null, [2, 3] ) ); //10
+		</script>
+	</body>
+</html>
