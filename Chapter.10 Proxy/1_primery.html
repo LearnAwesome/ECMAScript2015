@@ -9,19 +9,23 @@
 			//Proxy(代理器，拦截器)概述
 			//可以修改某些操作的默认行为，属于语言层面的'元编程'。
 			//用new Proxy( target, handler )实例化proxy对象，针对target对象进行行为拦截，拦截逻辑写在handler中。这两个参数必填。
-			var obj = new Proxy( {}, {
+			var obj = new Proxy( {
+				count: 1
+			}, {
 				get( target, key, receiver ) {
-					console.log( `getting ${key}` );
-					console.log( receiver );
+					console.log( `getting property of "${key}"` );
+					console.log( receiver ); //proxy对象
+					console.log( this ); //handler对象
 					return Reflect.get( target, key, receiver );
 				},
 				set( target, key, value, receiver ) {
-					console.log( `setting ${key}` );
+					console.log( `setting property of "${key}"` );
 					return Reflect.set( target, key, value, receiver );
 				}
 			} );
-			obj.count = 1; //setting count
-			obj.count ++; //getting count -> setting count
+			console.log( obj.count )
+//			obj.count = 2; //setting count
+//			obj.count ++; //getting count -> setting count
 
 //			var proxy = new Proxy( {}, {
 //				get( target, key ) {

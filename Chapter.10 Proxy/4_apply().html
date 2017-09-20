@@ -10,7 +10,8 @@
 			//1.基本应用
 //			const handler = {
 //				apply() {
-//					return console.log( `I am the proxy.` )
+//					console.log( `I am the proxy.` )
+//					return Reflect.apply( ...arguments );
 //				}
 //			};
 //			const foo = () => console.log( `I am the function.` );
@@ -20,7 +21,10 @@
 
 			//2.结果修改
 //			const handler = {
-//				apply() {
+//				apply(target, ctx, args) {
+//					console.log( target );
+//					console.log( ctx );
+//					console.log( args );
 //					return Reflect.apply( ...arguments ) * 2;
 //				}
 //			};
@@ -29,11 +33,11 @@
 //				[...rest].forEach( (n) => res += n );
 //				return res;
 //			}
-////			console.log( sum.call( null, 1, 2, 3 )); //6
+//			console.log( sum.call( null, 1, 2, 3 )); //6
 ////			console.log( sum.apply( null, [1, 2, 3] )); //6
 //			const proxy = new Proxy( sum, handler );
 //			console.log( proxy( 2, 3 ) ); //10
-//			console.log( proxy.call( null, 2, 3 ) ); //10
+//			console.log( proxy.call( {}, 2, 3 ) ); //10
 //			console.log( proxy.apply( null, [2, 3] ) ); //10
 //			console.log( Reflect.apply( proxy, null, [2, 3] ) ); //10
 		</script>

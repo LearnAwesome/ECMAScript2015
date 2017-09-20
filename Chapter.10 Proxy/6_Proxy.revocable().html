@@ -12,12 +12,19 @@
 				//revoke属性是函数，可以取消Proxy实例
 				
 			const target = {};
-			const handler = {};
-			const { proxy, revoke } = Proxy.revocable( target, handler );
-			proxy.abc = 123;
-			console.log( proxy.abc ); //123
-			revoke();
-			console.log( proxy.abc ); //TypeError: Cannot perform 'get' on a proxy that has been revoked
+//			const handler = {};
+//			console.log( Proxy.revocable( target, handler ) )
+//			const { proxy, revoke } = Proxy.revocable( target, handler );
+//			proxy.abc = 123;
+//			target.abc = 123;
+//			console.log( proxy.abc ); //123
+//			revoke();
+//			console.log( target.abc );
+//			console.log( proxy.abc ); //TypeError: Cannot perform 'get' on a proxy that has been revoked
+
+			const proxy = new Proxy( target, {} );
+			proxy.foo = () => console.log(1);
+			console.log( target.foo )
 		</script>
 	</body>
 </html>
