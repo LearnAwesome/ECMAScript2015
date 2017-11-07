@@ -7,6 +7,85 @@
 	<body>
 		<script type="text/javascript">
 			//set
+
+				//基础用法(子元素唯一)
+					// let s = new Set( [1, 1, 3, 4, 4, 2] );
+					//1. set属于类数组的对象
+					// console.log( s ); //{1, 3, 4, 2}
+					// console.log( typeof s ); //object
+					// console.log( Object.prototype.toString.call( s ) ); //[object Set]
+					//2. new Set().size返回长度
+					// console.log( s.size ); //4
+					//2. 键值对完全相等
+					// s.forEach( (value, key) => console.log( [ value, key ] ) ); //[1, 1] ... [2, 2]
+					
+					//3. 对于对象而言，认为所有对象的地址均不相等
+					// let s1 = new Set( [ {}, {} ] );
+					// console.log( s1 ); //{ {}, {} }
+
+					//4. 对于NaN而言，认为所有NaN均相等
+					// let s = new Set( [NaN, NaN] );
+					// console.log( s ); //{ NaN }
+
+				//实例的属性
+					//属性size，相当于数组的length，返回长度
+					// let s = new Set( [1, 2, 3, 3] );
+					// console.log( s.size ); //3
+
+				//实例的操作方法
+					//1. add #添加元素 #返回添加后的set对象
+					// let s = new Set();
+					// s.add(1).add(2).add(2);
+					// console.log(s); //{1, 2}
+
+					//2. delete #删除元素 #返回是否成功的布尔值
+					// s.delete(2);
+					// s.delete(3);
+					// console.log(s); //{1}
+
+					//3. has #返回是否为set成员的布尔值
+					// console.log( s.has(1) ); //true
+
+					//4. clear #清除所有set成员
+					// s.clear();
+					// console.log(s); //{}
+
+				//实例的遍历方法
+					// let s = new Set( ['r', 'g', 'b'] );
+					//1. keys 返回一个键名的遍历器
+					// for ( let item of s.keys() ) {
+					// 	console.log(item); //'r' 'g' 'b'
+					// }
+					//2. values 返回一个键值的遍历器
+					// for ( let item of s.values() ) {
+					// 	console.log(item); //'r' 'g' 'b' //由于Set结构中，key和value完全相等，所以keys方法和values方法结果相同
+					// }
+
+					//3. entries 返回一个键值对的遍历器
+					// for ( let item of s.entries() ) {
+					// 	console.log(item); //['r', 'r'] ['g', 'g'] ['b', 'b']
+					// }
+
+					//4. forEach 使用回调函数遍历每个成员
+					// s.forEach( ( val, key, self ) => {} )
+
+					//注意
+					// console.log( Set.prototype[Symbol.iterator] === Set.prototype.values ) //true
+					// 这说明Set对象的默认遍历器就是values的返回值。
+						// 可以省略values方法，直接用for of遍历Set的value值
+						// for (let item of s) {
+						// 	console.log(item); //'r' 'g' 'b'
+						// }
+						// 扩展运算符(...)内部使用的是for of循环，也就可以直接作用于Set上
+						// console.log( ...s ); //'r' 'g' 'b'
+
+				//应用例子
+					//数组去重 const dedupe = array => { Array.from( new Set( array ) ) | [ ...new Set( array ) ] };
+					//数组并集 const union = (a, b) => { [ ...new Set( [ ...a, ...b ] ) ] | Array.from( new Set( [ ...a, ...b ] ) ) };
+					//数组交集 const intersect = (a, b) => { [...new Set(a)].filter( x => new Set(b).has(x) );
+					//数组差集 const difference = (a, b) => { [...new Set(a)].filter( x => !new Set(b).has(x) );
+					//Set遍历修改自身 const syncModify = (set, handler) => { set = new Set( [...set].map(fn) ) };
+													//= (set, handler) => { set = new Set( Array.from( set, fn ) ) };
 		</script>
 	</body>
 </html>
