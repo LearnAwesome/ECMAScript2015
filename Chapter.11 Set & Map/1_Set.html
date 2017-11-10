@@ -14,8 +14,6 @@
 					// console.log( s ); //{1, 3, 4, 2}
 					// console.log( typeof s ); //object
 					// console.log( Object.prototype.toString.call( s ) ); //[object Set]
-					//2. new Set().size返回长度
-					// console.log( s.size ); //4
 					//2. 键值对完全相等
 					// s.forEach( (value, key) => console.log( [ value, key ] ) ); //[1, 1] ... [2, 2]
 					
@@ -82,8 +80,8 @@
 				//应用例子
 					//数组去重 const dedupe = array => { Array.from( new Set( array ) ) | [ ...new Set( array ) ] };
 					//数组并集 const union = (a, b) => { [ ...new Set( [ ...a, ...b ] ) ] | Array.from( new Set( [ ...a, ...b ] ) ) };
-					//数组交集 const intersect = (a, b) => { [...new Set(a)].filter( x => new Set(b).has(x) );
-					//数组差集 const difference = (a, b) => { [...new Set(a)].filter( x => !new Set(b).has(x) );
+					//数组交集 const intersect = (a, b) => { [...new Set(a)].filter( x => new Set(b).has(x) ) };
+					//数组差集 const difference = (a, b) => { [...new Set(a)].filter( x => !new Set(b).has(x) ) };
 					//Set遍历修改自身 const syncModify = (set, handler) => { set = new Set( [...set].map(fn) ) };
 													//= (set, handler) => { set = new Set( Array.from( set, fn ) ) };
 		</script>
