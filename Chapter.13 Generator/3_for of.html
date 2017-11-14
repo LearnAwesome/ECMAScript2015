@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			// 用for of循环Generator()遍历器
+
+				// 不需要使用next方法，循环输出yield的value值
+				// function* f() {
+				// 	yield 1;
+				// 	yield 2;
+				// 	yield 3;
+				// 	return 4;
+				// }
+				// 一旦done的属性为true时，for of循环自动结束，并且不返回这次的value值
+				// for (let val of f()) {
+				// 	console.log(val); // 1 2 3 # return的返回值不会返回
+				// }
+
+				// 斐波那契数列实例
+				// function* fibonacci() {
+				// 	let [prev, curr] = [0, 1];
+				// 	for (;;) {
+				// 		yield prev;
+				// 		[prev, curr] = [curr, curr + prev];
+				// 	}
+				// }
+				// for (let n of fibonacci()) {
+				// 	if (n > 1000) break;
+				// 	console.log(n);
+				// }
+
+				// for of、...、Array.from()、解构赋值方法内部都调用的是iterator接口
+				// function* f() {
+				// 	yield 1;
+				// 	yield 2;
+				// 	return 3;
+				// }
+					// // for of
+					// for (let key of f()) {
+					// 	console.log(key); // 1 2
+					// }
+					// // 扩展运算符...
+					// const [a, b] = [...f()];
+					// console.log(a, b); // 1, 2
+					// // Array.from()
+					// const arr = Array.from( f() );
+					// console.log(arr); // [1, 2]
+					// // 解构赋值
+					// const [c, d] = f();
+					// console.log(c, d); // 1 2
+
+				// 利用for of遍历对象(为对象的原型增加遍历器接口)
+				// const objectEntries = function* () {
+				// 	const props = Reflect.ownKeys(this);
+				// 	for (let prop of props) {
+				// 		yield [prop, this[prop]];
+				// 	}
+				// };
+
+				// Object.prototype.entries = objectEntries; // 用obj.entries()调用
+				// Object.prototype[Symbol.iterator] = objectEntries; // 直接遍历
+
+				// let obj = {
+				// 	name: "michael",
+				// 	age: 27,
+				// 	[Symbol.for('a')]: 'a'
+				// };
+
+				// for (let [key, val] of obj) {
+				// 	console.log(key, val);
+				// }
+
+		</script>
+	</body>
+</html>

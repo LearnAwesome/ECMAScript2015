@@ -6,7 +6,49 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			
+			// next方法的参数
+				// yield本身没有返回值(undefined)。
+				// next中的参数会被当作上一条yield语句的返回值
+				// function* f() {
+				// 	for (let i = 0; true; i ++) {
+				// 		const reset = yield i;
+				// 		reset && (i = -1);
+				// 	}
+				// }
+				// const g = f();
+				// console.log( g.next() ); // {value: 0, done: false} # yield 0 => value = 0
+				// console.log( g.next() ); // {value: 1, done: false} # yield 1 => value = 1
+				// console.log( g.next(true) ); // {value: 0, done: false} yield 2 = true => yield 0 => value = 0
+
+				// function* foo(x) {
+				// 	const y = 2 * ( yield (x + 1) );
+				// 	const z = yield (y / 3);
+				// 	return x + y + z;
+				// }
+				// const a = foo(5);
+				// 不传递参数的运行
+				// console.log( a.next() ); // {value: 6, done: false} # yield (5 + 1) => value = 6
+				// console.log( a.next() ); // {value: NaN, done: false} # yield (x + 1) = undefined => y = 2 * undefined = NaN => yield (NaN / 3) => value = NaN
+				// console.log( a.next() ); // {value: NaN, done: true} # yield (y / 3) = undefined => z = undefined => x + y + z = 5 + NaN + undefined = NaN
+				// 传递参数的运行
+				// console.log( a.next() ); // {value: 6, done: false} # yield (5 + 1) => value = 6
+				// console.log( a.next(12) ); // {value: 8, done: false} # yield (x + 1) = 12 => y = 2 * 12 = 24 => yield (24 / 3) => value = 8
+				// console.log( a.next(13) ); // {value: 42, done: true} # yield (y / 3) = 13 => z = 13 => x + y + z = 5 + 24 + 13 = 42
+
+				// function* dataConsumer() {
+				// 	let i = 0; // 1
+				// 	console.log('Started'); // 2
+				// 	console.log(`1. ${yield i}`); // 3
+				// 	i ++; // 4
+				// 	console.log(`2. ${yield i}`); // 5
+				// 	return 'result'; // 6
+				// }
+				// const genObj = dataConsumer();
+				// console.log( genObj.next() ); // 'Started' {value: 0, done: false} # 执行了1 2 3
+				// console.log( genObj.next('a') ); // '1. a' {value: 1, done: false} # 执行了3 4 5
+				// console.log( genObj.next('b') ); // '2. b' {value: 'result', done: true} # 执行了5 6
+
+
 		</script>
 	</body>
 </html>
