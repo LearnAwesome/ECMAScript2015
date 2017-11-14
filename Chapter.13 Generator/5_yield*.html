@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			// yield*
+				// Generator函数中调用另外一个Generator函数，默认无效
+				// 需要使用yield*来调用
+				// 被调用的Generator函数如果有返回值，则在这个函数遍历结束后，会替换整个yield*语句
+				// 相当于加入了一个for of循环，并且可以捕获返回值
+				// function* foo() {
+				// 	yield 1;
+				// 	yield 2;
+				// 	return 3;
+				// }
+				// function* bar() {
+				// 	yield 'a';
+				// 	const b = yield* foo();
+				// 	// for (let value of foo()) {
+				// 	// 	yield value;
+				// 	// }
+				// 	console.log(b);
+				// }
+				// const g = bar();
+				// for (let val of g) {
+				// 	console.log(val);
+				// }
+				// console.log( g.next() ); // {value: 'a', done: false}
+				// console.log( g.next() ); // {value: 1, done: false}
+				// console.log( g.next() ); // {value: 2, done: false}
+				// console.log( g.next() ); // 3 {value: undefined, done: true}
+
+				// 只要具备iterator遍历器结构的数据，都可以用yield*来遍历
+				// function* f() {
+				// 	yield 1;
+				// 	yield* ['a', 'b']; // String, Array, TypedArray, Set, Map
+				// 	return 2;
+				// }
+				// const g = f();
+				// console.log( g.next() ); // {value: 1, done: false}
+				// console.log( g.next() ); // {value: 'a', done: false}
+				// console.log( g.next() ); // {value: 'b', done: false}
+				// console.log( g.next() ); // {value: 2, done: true}
+
+				// 递归思想，遍历多维数组中的所有成员
+				// function* iterTree(tree) {
+				// 	if ( Array.isArray(tree) ) {
+				// 		for (let i = 0; i < tree.length; i ++) {
+				// 			yield* iterTree(tree[i]);
+				// 		}
+				// 	} else {
+				// 		yield tree;
+				// 	}
+				// }
+
+				// const tree = ['a', ['b', ['c', 'd']], ['e', 'f'], ['g']];
+				// for (let val of iterTree(tree)) {
+				// 	console.log(val); // 'a' 'b' 'c' 'd' 'e' 'f' 'g'
+				// }
+
+		</script>
+	</body>
+</html>
