@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+		//数组的解构赋值
+		//格式：模式数组=数组字面量(等式两边必须都是数组)
+		
+			//必须根据字面量的结构(位置顺序)进行结构
+//			let [a, b, c] = [1, 2, 3];
+//			
+//			console.log(a); //1
+//			console.log(b); //2
+//			console.log(c); //3
+
+//			let arr = [ 1, [ 2, [3] ] ];
+//			let [ a, [ b, [c] ] ] = arr;
+//			
+//			console.log(a); //1
+//			console.log(b); //2
+//			console.log(c); //3
+
+			//数组结构赋值中，数组变量的简写：...变量名
+//			let arr = [1, 2, 3, 4];
+//			let [a, ...b] = arr;
+//			console.log(a); //1
+//			console.log(b); //[2, 3, 4];
+			
+			//解构失败：模式数组位数>字面量数组位数
+//			let [a, b, c] = [1, 2];
+//			console.log(a); //1
+//			console.log(b); //2
+//			console.log(c); //undefined //解构失败返回undefined
+
+			//不完全解构：模式数组位数<字面量数组位数
+//			let [a, b] = [1, 2, 3];
+//			console.log(a); //1
+//			console.log(b); //2
+			
+			//默认值：模式数组中的子变量预赋值
+				//字面量数组对应位的字面量严格等于undefined
+//				let [ a = 1, b = 2] = [];
+//				console.log(a); //1
+//				console.log(b); //2
+			
+				//字面量数组对应位的字面量不严格等于undefined
+//				let [ a = 1, b = 2] = [2, null];
+//				console.log(a); //2
+//				console.log(b); //null
+
+				//默认值为表达式时，惰性求值
+//				function f() {
+//					return 1;
+//				}
+//				let [ a = f() ] = [2]; //优先解构
+//				console.log(a); //2
+//				let [ a = f() ] = []; //解构失败后，再进行默认值表达式的惰性求值
+//				console.log(a); //1
+			
+				//默认值可以引用模式数组中的其他变量，但被引用变量必须提前声明
+//				let [ x = 2, y = x ] = [];
+//				console.log(x); //2
+//				console.log(y); //2
+
+//				let [ x = 2, y = x ] = [1];
+//				console.log(x); //1
+//				console.log(y); //1
+
+//				let [ x = y, y = 2 ] = []; //ReferenceError 因为在x引用y时，y还未声明
+
+		</script>
+		
+	</body>
+</html>

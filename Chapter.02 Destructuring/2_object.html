@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+		//对象的解构赋值
+		//格式：模式对象=对象字面量(等式两边必须都是数组)
+		
+			//与数组解构赋值不同，解构只需要对应的key值相同，无关顺序
+//			let {b, a} = { a: 1, b: 2 };
+//			console.log(a); //1
+//			console.log(b); //2
+			
+			//声明的变量名与对象字面量中的key不同的解构，需要通过相同模式key来转换
+//			let {c, d} = { a: 1, b: 2 };
+//			console.log(c); //undefined
+//			console.log(d); //undefined
+			
+//			let { a: c, b: d } = { a: 1, b: 2 };
+//			console.log(a); //ReferenceError //模式key
+//			console.log(b); //ReferenceError //模式key
+//			console.log(c); //1
+//			console.log(d); //2
+
+			//模式对象中的key值必须未被进行let||const声明，否则应使用()来解析
+//			let a;
+//			let {a, b} = {a: 1, b: 2}; //SyntaxError //a已经被let声明
+//			console.log(a);
+
+//			var a; //var 声明方式允许重复声明，并且后者会覆盖前者
+//			var {a, b} = {a: 1, b: 2};
+//			console.log(a); //1
+
+//			let a;
+//			{a, b} = {a: 1, b: 2}; //SyntaxError //代码已{}开头会被解析为代码块
+			
+//			let a;
+//			( {a, b} = {a: 1, b: 2} ); //加圆括号后才能解构成功
+//			console.log(a); //1
+//			console.log(b); //2
+
+//			let { a: c = 0, b: d = 0 } = {};
+//			console.log(c)
+//			console.log(d);
+			
+		</script>
+		
+	</body>
+</html>
