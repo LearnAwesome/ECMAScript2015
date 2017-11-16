@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			// Generator函数中的this
+				// Generator函数返回的遍历器对象就是Generator的实例，而next方法是Generator原型下的方法
+				// function* foo() {
+				// 	this.c = 3;
+				// 	yield this.a = 0;
+				// 	yield this.b = 1;
+				// }
+				// foo.prototype.hello = function() {
+				// 	console.log('hello');
+				// };
+				// foo.prototype.num = 2;
+				// const g = foo();
+				// g.hello(); // 'hello'
+				// console.log(g.num) // '2'
+				// console.log(g.a); // undefined
+
+				// 取不到this的值因为，Generator总返回的是遍历器对象，并不是this对象，可以采用如下变通方式
+				// 用next执行内部的this赋值
+				// const obj = {};
+				// const g = foo.bind(obj)();
+				// console.log( obj.a ); // undefined
+				// console.log( obj.b ); // undefined
+				// console.log( obj.c ); // undefined
+				// console.log( g.next() ); // {value: 0, done: false}
+				// console.log( obj.a ); // 0
+				// console.log( obj.b ); // undefined
+				// console.log( obj.c ); // 3
+				// console.log( g.next() ); // {value: 1, done: false}
+				// console.log( obj.a ); // 0
+				// console.log( obj.b ); // 1
+				// console.log( g.next() ); // {value: undefined, done: true}
+
+		</script>
+	</body>
+</html>
