@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Promise.resolve(object)
+        // 包装object成为一个Promise对象
+
+        // 如果object不属于异步操作(判断该对象是否具有then方法，又称thenable对象)，返回的Promise对象的状态立即变成Resolved
+        // const fakeP = Promise.resolve("hello");
+        // fakeP.then( data => console.log(data) ); // "hello"
+        // ================ 等价于
+        // const fakeP = new Promise(resolve => resolve("hello"));
+        // fakeP.then( data => console.log(data) ); // "hello"
+
+        // 如果object属于thenable对象，则会原封不动的返回这个对象
+
+    </script>
+</body>
+</html>
