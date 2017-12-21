@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Promise.all(Iterator)
+        // 包装具备Iterator接口的对象(如果对象不是thenable对象，则用Promise.resolve()转为Promise对象)成为一个Promise对象，有以下两种状态
+
+        // 1. 所有子成员的状态都变为Fulfilled，则总Promise对象的状态才会变为Fulfilled，并且返回一个包括所有子成员返回值的数组
+        // const p = [1, 2, 3].map(id => {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(`successd with ${id}.`);
+        //         }, id * 500);
+        //     });
+        // });
+        // Promise.all(p).then( data => console.log(data) ); //[...]
+
+        // 2. 只要有一个子成员的状态变为Rejected，则总Promise对象的状态就会变为Rejected，此时第一个变为Rejected的返回值传递给总Promise对象
+        // const p = [1, 2, 3].map(id => {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             (id === 2) && reject(`failed with ${id}.`);
+        //             resolve(`successd with ${id}.`);
+        //         }, id * 500);
+        //     });
+        // });
+        // Promise.all(p)
+        //     .then( data => console.log(data) )
+        //     .catch( error => console.log(error) ); // "failed with 2."
+
+    </script>
+</body>
+</html>
