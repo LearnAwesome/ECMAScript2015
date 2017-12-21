@@ -24,22 +24,16 @@
 
         // 常规返回值: 在下一个then方法中作为返回值，并立即执行
         // createAsync(1000)
-        //     .then((data) => {
-        //         return "This is a normal return.";
-        //     })
-        //     .then((data) => {
-        //         console.log(`${data} And I have got it.`);
-        //     });
+        //     .then(data => "This is a normal return.")
+        //     .then(data => console.log(`${data} And I have got it.`));
 
         // Promise对象返回值: 遵循异步回调规则
         // createAsync(1000)
-        //     .then((data) => {
+        //     .then(data => {
         //         console.log(data);
         //         return createAsync(2000, data);
         //     })
-        //     .then((data) => {
-        //         console.log(data);
-        //     });
+        //     .then(data => console.log(data));
 
     </script>
 </body>
