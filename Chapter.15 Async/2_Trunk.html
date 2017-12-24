@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // Thunk
+        // 为了实现传名调用(call by name)时的临时函数
+
+        // 传值调用
+        // const x = 3;
+        // function f(m) {
+        //     return m * 2;
+        // }
+        // f(x + 5);
+        // ========= 等价于 =========
+        // Thunk的传名调用
+        // const Thunk = function() {
+        //     return x + 5;
+        // }
+        // function f() {
+        //     return Thunk() * 2;
+        // }
+
+        // 简单thunk转换器
+        // var Thunk = function(fn) {
+        //     return function() {
+        //         var args = Array.prototype.splice.call(arguments);
+        //         return function(callback) {
+        //             args.push(callback);
+        //             return fn.apply(this, args);
+        //         }
+        //     }
+        // }
+
+        // 基于Thunk函数的Generator自动执行器
+        // function run(fn) {
+        //     var gen = fn();
+        //     function _next(err, data) {
+        //         var result = gen.next(data);
+        //         if (result.done) return;
+        //         result.value(_next);
+        //     }
+        //     _next();
+        // }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 协程(coroutine)
+        // 多线程互相协作，完成任务。
+
+        // Generator
+        // 可以暂停执行与恢复执行，交换执行权
+        // next方法对外输出内部指针，next方法的参数可以向内输入数据
+        function* gen(x) {
+            try {
+                var y = yield x + 2;
+            } catch (e) {
+                console.log(e);
+            }
+            return y;
+        }
+        const g = gen(1);
+        console.log( g.next() );
+        console.log( g.throw("出错了") );
+
+    </script>
+</body>
+</html>
